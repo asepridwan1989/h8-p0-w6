@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Kalkulator Beras</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h2>Kalkulator Beras</h2>
+    <p id="p1">Tugas Membuat WEB dengan Document Object Model (DOM)</p>
+    <form>
+      Input A : <input type="text" name="nama" id="longitude"/>
+      <br/><br/>
+      Input B : <input type="text" name="nama" id="latitude"/>
+      <br/><br/>
+      Operator :
+      <select id="operator">
+        <option value="+">tambah</option>
+        <option value="-">kurang</option>
+        <option value="*">kali</option>
+        <option value="/" selected>bagi</option>
+      </select>
+      <br/><br/>
+      <p2 id="p2">Hasil = </p2>
+      <br/><br/>
+      <input type="button" onclick="aljabar()" value="kalkulasi" />
+      <input type="reset" value="Reset">
+    </form>
+    <script>
+    function aljabar()
+    {
+    a = document.getElementById('longitude').value;
+    b = document.getElementById('latitude').value;
+    if(a === '' || b === ''){
+    	alert('silakan isi nilai a dan b terlebih dulu');
+    	}
+	var x = document.getElementById("operator").value;
+	function tambah(a,b){
+		return Number(a) + Number(b)
+		}
+	function kali(a,b){
+		return Number(a) * Number(b)
+		}
+	function bagi(a,b){
+		return Number(a) / Number(b)
+		}
+	function kurang(a,b){
+		return Number(a) - Number(b)
+		}
+	switch(x){
+		case '+':
+			c = tambah(a,b);
+		break;
+		case '*':
+			c = kali(a,b);
+		break;
+		case '/':
+			c = bagi(a,b);
+		break;
+		case '-':
+			c = kurang(a,b);
+		break;
+		}
+    if(isNaN(c)){
+    	alert("hanya masukan tipe data number saja");
+    	}else{
+    		document.getElementById("p2").innerHTML="Hasil = " + c;
+    	}
+
+    }
+    </script>
+    <br/>
+  </body>
+</html>
